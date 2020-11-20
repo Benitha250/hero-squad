@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 public class Hero {
+
     private String hName;
     private int hAge;
     private String hSpecialPower;
