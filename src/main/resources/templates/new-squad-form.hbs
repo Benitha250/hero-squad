@@ -1,14 +1,13 @@
-<!--
 {{#partial "title" }}
     Create a squad!
 {{/partial}}
 
-&lt;!&ndash;form.hbs.&ndash;&gt;
+<!--form.hbs.-->
 {{#partial "content"}}
 
     <h1>Create a squad of your choice:</h1>
     <form action="/squad/new" method="post">
-        &lt;!&ndash;max size, name, and a cause&ndash;&gt;
+        <!--max size, name, and a cause-->
         <div class="form-group">
             <label for="squad-name">Name of Squad:</label>
             <input type="text" name="squad-name" id="squad-name" class="form-control" required="required"/>
@@ -23,7 +22,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    &lt;!&ndash;form.hbs.&ndash;&gt;
+    <!--form.hbs.-->
 {{/partial}}
 
-{{> layout.hbs}}-->
+{{> layout.hbs}}
