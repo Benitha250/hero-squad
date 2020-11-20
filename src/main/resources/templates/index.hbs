@@ -1,0 +1,22 @@
+{{#partial "title" }}
+    Home!
+{{/partial}}
+
+<!--form.hbs.-->
+{{#partial "content"}}
+
+    {{#if squads}}
+        <p>You have the following Squads:</p>
+        <p>Click on the name for more details</p>
+        {{#each squads}}
+        <p>{{ squad-name }} <a href="/squad/{{id}}">{{name}}</a></p>
+        {{/each}}
+    {{ else }}
+        <p>You have no squads at the moment.</p>
+    {{/if}}
+
+    <a href="/hero/new"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create Hero</button></a>
+    <a href="/squad/new"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create Squad</button></a>
+{{/partial}}
+
+{{> layout.hbs}}
