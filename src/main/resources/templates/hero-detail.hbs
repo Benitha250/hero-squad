@@ -1,0 +1,13 @@
+{{#partial "title" }}
+    Hero details!
+{{/partial}}
+
+{{#partial "content"}}
+    <h1>{{hero-name}}</h1>
+    <p>Age: {{hero-age}}</p>
+    <p>Special Power: {{special-power}}</p>
+    <p>Weakness: {{weakness}}</p>
+    <a href="/hero/delete/{{id}}"><button class="btn btn-outline-danger my-2 my-sm-0">Delete {{hero-name}}</button></a>
+{{/partial}}
+
+{{> layout.hbs}}
