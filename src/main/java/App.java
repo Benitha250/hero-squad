@@ -12,10 +12,6 @@ public class App {
     public static void main(String[] args){
         staticFileLocation("public");
 
-        get("/new-squad-form", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "new-squad-form.hbs");
-        }, new HandlebarsTemplateEngine());
 
         get("/", (Request request, Response response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -41,7 +37,6 @@ public class App {
             return new ModelAndView(model, "new-squad-success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        ////////////////////////////////////////////////////////////////////////////////////////////
 
         get("/squad/:id",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -71,6 +66,41 @@ public class App {
             model.put("squad",chosenSquad);
             return new ModelAndView(model, "squad-details.hbs");
         },new HandlebarsTemplateEngine());
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        get("/hero/:id",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Hero chosenHero = Hero.find(Integer.parseInt(request.params("id")));
+            model.put("title", chosenHero.getName());
+            model.put("hero", chosenHero);
+            return new ModelAndView(model, "hero-details.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/squads", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("squads", request.session().attribute("squads"));
+            return new ModelAndView(model, "squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("heroes", request.session().attribute("heroes"));
+            model.put("title", "Heroes");
+            return new ModelAndView(model, "heroes.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squad/delete/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Squad.remove(Integer.parseInt(request.params("id")));
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/hero/delete/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Hero.remove(Integer.parseInt(request.params("id")));
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 
 
