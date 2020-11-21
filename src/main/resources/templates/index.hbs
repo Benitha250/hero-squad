@@ -2,9 +2,11 @@
     Home!
 {{/partial}}
 
+<!--form.hbs.-->
 {{#partial "content"}}
 
     {{#if squads}}
+        Welcome {{ squad-name }}
         <p>You have the following Squads:</p>
         <p>Click on the name for more details</p>
         {{#each squads}}

@@ -41,16 +41,14 @@ public class App {
             return new ModelAndView(model, "new-squad-success.hbs");
         }, new HandlebarsTemplateEngine());
 
-/*        ////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////
 
         get("/squad/:id",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             Squad chosenSquad = Squad.find(Integer.parseInt(request.params("id")));
-            model.put("title", chosenSquad.getName());
             model.put("squad",chosenSquad);
-            model.put("template", "templates/squad-details.hbs");
-            return new ModelAndView(model, layout);
-        }, new VelocityTemplateEngine());
+            return new ModelAndView(model, "squad-details.hbs");
+        }, new HandlebarsTemplateEngine());
 
         post("/squad/:id/addhero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -70,12 +68,9 @@ public class App {
                 String message = "The Hero was added successfully";
                 model.put("message", message);
             }
-
-            model.put("title", chosenSquad.getName());
             model.put("squad",chosenSquad);
-            model.put("template", "templates/squad-details.hbs");
-            return new ModelAndView(model, layout);
-        },new VelocityTemplateEngine());*/
+            return new ModelAndView(model, "squad-details.hbs");
+        },new HandlebarsTemplateEngine());
     }
 
 
