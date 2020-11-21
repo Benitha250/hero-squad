@@ -1,0 +1,15 @@
+{{#partial "title" }}
+    Squad details!
+{{/partial}}
+
+{{#partial "content"}}
+    <h1>Squads</h1>
+    {{each squads}}
+    <hr/>
+    <h3>{{id}}<span>.</span> {{name}}</h3>
+    <p>Size: {{size}}</p>
+    <p>Cause: {{cause}}</p>
+    {{each}}
+{{/partial}}
+
+{{> layout.hbs}}
