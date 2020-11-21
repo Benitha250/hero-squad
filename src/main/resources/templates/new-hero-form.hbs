@@ -1,0 +1,34 @@
+{{#partial "title" }}
+    Create a hero!
+{{/partial}}
+
+{{#partial "content"}}
+
+    <form action="/hero/new" method="post">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="hero-name">Name of Hero:</label>
+                <input type="text" name="hero-name" id="hero-name" class="form-control" required="required"/>
+            </div>
+            <div class="form-group">
+                <label for="hero-age">Age of Hero:</label>
+                <input type="text" name="hero-age" id="hero-age" class="form-control" required="required"/>
+            </div>
+            <div class="form-group">
+                <label for="special-power">Special Powers of Hero:</label>
+                <input type="text" name="special-power" id="special-power" class="form-control" required="required"/>
+            </div>
+            <div class="form-group">
+                <label for="weakness">Weakness of Hero:</label>
+                <input type="text" name="weakness" id="weakness" class="form-control" required="required"/>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit Hero</button>
+            <button type="button" class="btn btn-secondary btn-right" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+
+{{/partial}}
+
+{{> layout.hbs}}

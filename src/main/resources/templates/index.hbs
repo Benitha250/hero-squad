@@ -6,11 +6,22 @@
 {{#partial "content"}}
 
     {{#if squads}}
-        Welcome {{ squad-name }}
+        Welcome {{squad-name}} {{name}}
         <p>You have the following Squads:</p>
         <p>Click on the name for more details</p>
         {{#each squads}}
-        <p>{{ squad-name }} <a href="/squad/{{id}}">{{name}}</a></p>
+        <p><a href="/squad/{{id}}">{{name}}</a></p>
+        {{/each}}
+    {{ else }}
+        <p>You have no squads at the moment.</p>
+    {{/if}}
+
+    {{#if heroes}}
+        Welcome {{hero-name}} {{name}}
+        <p>You have the following heroes:</p>
+        <p>Click on the name for more details</p>
+        {{#each heroes}}
+            <p><a href="/hero/{{id}}">{{name}}</a></p>
         {{/each}}
     {{ else }}
         <p>You have no squads at the moment.</p>

@@ -68,6 +68,23 @@ public class App {
         },new HandlebarsTemplateEngine());
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        get("/hero/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "new-hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/hero/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newheroName = request.queryParams("hero-name");
+            int newheroAge = Integer.parseInt(request.queryParams("hero-age"));
+            String newheroPower =request.queryParams("special-power");
+            String newheroWeakness = request.queryParams("weakness");
+            Hero myHero = new Hero(newheroName,newheroAge,newheroPower,newheroWeakness);
+            request.session().attribute("heroes", Hero.all());
+            model.put("hero", Hero);
+            return new ModelAndView(model, "new-hero-success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/hero/:id",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             Hero chosenHero = Hero.find(Integer.parseInt(request.params("id")));

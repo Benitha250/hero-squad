@@ -4,11 +4,11 @@
 
 {{#partial "content"}}
     <h1>Squads</h1>
-    {{each squads}}
+    {{each squad in squads}}
     <hr/>
-    <h3>{{id}}<span>.</span> {{name}}</h3>
-    <p>Size: {{size}}</p>
-    <p>Cause: {{cause}}</p>
+    <h3>{{id}}<span>.</span> {{squad-name}}</h3>
+    <p>Size: {{squad-size}}</p>
+    <p>Cause: {{squad-cause}}</p>
     {{each}}
 {{/partial}}
 
