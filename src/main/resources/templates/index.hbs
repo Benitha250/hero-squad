@@ -17,14 +17,14 @@
     {{/if}}
 
     {{#if heroes}}
-        Welcome {{hero-name}} {{name}}
+        Welcome
         <p>You have the following heroes:</p>
         <p>Click on the name for more details</p>
         {{#each heroes}}
             <p><a href="/hero/{{id}}">{{name}}</a></p>
         {{/each}}
     {{ else }}
-        <p>You have no squads at the moment.</p>
+        <p>You have no Hero at the moment.</p>
     {{/if}}
 
     <a href="/hero/new"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create Hero</button></a>

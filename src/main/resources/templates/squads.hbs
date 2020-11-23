@@ -4,12 +4,12 @@
 
 {{#partial "content"}}
     <h1>Squads</h1>
-    {{each squad in squads}}
+    {{#each squad in squads}}
     <hr/>
     <h3>{{id}}<span>.</span> {{squad-name}}</h3>
     <p>Size: {{squad-size}}</p>
     <p>Cause: {{squad-cause}}</p>
-    {{each}}
+    {{/each}}
 {{/partial}}
 
 {{> layout.hbs}}

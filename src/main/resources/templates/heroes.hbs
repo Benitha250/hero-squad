@@ -4,13 +4,13 @@
 
 {{#partial "content"}}
     <h1>Heroes</h1>
-    {{each hero in heroes}}
+    {{#each hero in heroes}}
     <hr/>
     <h3>{{id}}<span>.</span> {{hero-name}}</h3>
     <p>Special Power: {{special-power}}</p>
     <p>Weakness: {{weakness}}</p>
     <p>Age: {{hero-age}}</p>
-    {{each}}
+    {{/each}}
 {{/partial}}
 
 {{> layout.hbs}}

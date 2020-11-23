@@ -3,6 +3,15 @@
 {{/partial}}
 
 {{#partial "content"}}
+
+    {{#if myHero.size}}
+        <p>It currently holds the following Heroes</p>
+        {{#each hero in heros}}
+            <p><a href="/hero/{{id}}">{{hero-name}}</a></p>
+        {{/each}}
+    {{else}}
+        <p>It currently has no Heroes</p>
+    {{/if}}
     <h1>{{hero-name}}</h1>
     <p>Age: {{hero-age}}</p>
     <p>Special Power: {{special-power}}</p>

@@ -47,7 +47,6 @@ public class App {
 
         post("/squad/:id/addhero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-
             Squad chosenSquad = Squad.find(Integer.parseInt(request.params("id")));
             if(chosenSquad.getHeros().size()==chosenSquad.getSize()){
                 String message = "Could not add the hero to squad. It is already full. ";
@@ -75,20 +74,19 @@ public class App {
 
         post("/hero/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            String newheroName = request.queryParams("hero-name");
-            int newheroAge = Integer.parseInt(request.queryParams("hero-age"));
-            String newheroPower =request.queryParams("special-power");
-            String newheroWeakness = request.queryParams("weakness");
-            Hero myHero = new Hero(newheroName,newheroAge,newheroPower,newheroWeakness);
+            String heroName = request.queryParams("hero-name");
+            int heroAge = Integer.parseInt(request.queryParams("hero-age"));
+            String heroPower =request.queryParams("special-power");
+            String heroWeakness = request.queryParams("weakness");
+            Hero myHero = new Hero(heroName,heroAge,heroPower,heroWeakness);
             request.session().attribute("heroes", Hero.all());
-            model.put("hero", Hero);
+            model.put("heroes", myHero);
             return new ModelAndView(model, "new-hero-success.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/hero/:id",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             Hero chosenHero = Hero.find(Integer.parseInt(request.params("id")));
-            model.put("title", chosenHero.getName());
             model.put("hero", chosenHero);
             return new ModelAndView(model, "hero-details.hbs");
         },new HandlebarsTemplateEngine());
