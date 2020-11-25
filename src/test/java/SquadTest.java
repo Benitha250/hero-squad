@@ -1,5 +1,8 @@
 import org.junit.After;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 public class SquadTest {
     @After
@@ -59,14 +62,14 @@ public class SquadTest {
     @Test
     public void Squad_getHeros_instantiatesWithEmptyHeroList_int(){
         Squad mySquad = new Squad("Avatar", 3, "Bad guys");
-        assertEquals(0, mySquad.getHeros().size());
+        assertEquals(0, mySquad.getHeroes().size());
     }
     @Test
     public void Squad_addHeros_addsHeroInstanceToSquad_true(){
         Hero myHero = new Hero("Benitha", 20, "Sexism","Sexual harrassment");
         Squad mySquad = new Squad("Avatar", 3, "Bad guys");
         mySquad.addHero(Hero.find(myHero.getId()));
-        assertTrue(mySquad.getHeros().contains(myHero));
+        assertTrue(mySquad.getHeroes().contains(myHero));
     }
     @Test
     public void Squad_addHeros_cannotAddMoreThanItsMaxSize_true(){
@@ -78,7 +81,7 @@ public class SquadTest {
         mySquad.addHero(Hero.find(myHero.getId()));
         mySquad.addHero(Hero.find(secondHero.getId()));
         mySquad.addHero(Hero.find(thirdHero.getId()));
-        assertTrue(mySquad.getHeros().contains(thirdHero));
+        assertTrue(mySquad.getHeroes().contains(thirdHero));
     }
     @Test
     public void Squad_addHeros_cannotAddMoreThanItsMaxSize_false(){
@@ -90,7 +93,7 @@ public class SquadTest {
         mySquad.addHero(Hero.find(myHero.getId()));
         mySquad.addHero(Hero.find(secondHero.getId()));
         mySquad.addHero(Hero.find(thirdHero.getId()));
-        assertFalse(mySquad.getHeros().contains(fourthHero));
+        assertFalse(mySquad.getHeroes().contains(fourthHero));
     }
     @Test
     public void Squad_removeHero_removesHeroFromASquad_false(){
@@ -100,7 +103,7 @@ public class SquadTest {
         mySquad.addHero(Hero.find(firstHero.getId()));
         mySquad.addHero(Hero.find(secondHero.getId()));
         mySquad.removeHero(Hero.find(secondHero.getId()));
-        assertFalse(mySquad.getHeros().contains(secondHero));
+        assertFalse(mySquad.getHeroes().contains(secondHero));
     }
     @Test
     public void Squad_removeHero_removesHeroFromASquad_true(){
@@ -110,6 +113,15 @@ public class SquadTest {
         mySquad.addHero(Hero.find(firstHero.getId()));
         mySquad.addHero(Hero.find(secondHero.getId()));
         mySquad.removeHero(Hero.find(secondHero.getId()));
-        assertTrue(mySquad.getHeros().contains(firstHero));
+        assertTrue(mySquad.getHeroes().contains(firstHero));
+    }
+
+    private Squad setUpNewSquad() {
+        ArrayList<Hero> heroes=new ArrayList<Hero>();
+        Hero hero=new Hero("Absorbing Man",30,"Absorbing ","Can Absorb evil thought");
+        Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast");
+        heroes.add(hero);
+        heroes.add(otherHero);
+        return new Squad("Nation League",2,"Bad guys");
     }
 }

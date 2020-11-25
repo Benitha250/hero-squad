@@ -1,43 +1,29 @@
-{{#block "header"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Hero Squad{{/block}}</title>
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>{{#block "title"}}Hero Squad{{/block}}
-        </title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
-    </head>
-    <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/">myHero</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<ul class="nav ">
+    <li  class="active"><a href="/">Home</a></li>
+    <li  class="active"><a href="/hero">View Heroes</a></li>
+    <li  class="active"><a href="/squad">View Squads</a></li>
+</ul>
+<div class="container-fluid">
+    <!--begin main template-->
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li><a class="nav-link" href="/">Home</a></li>
-                <li><a class="nav-link" href="/squads">Squads</a></li>
-                <li><a class="nav-link" href="/heroes">Heroes</a></li>
-            </ul>
-        </div>
-    </nav>
-{{/block}}
+    <div class="main-content">
+        {{#block "content"}}
+        {{/block}}
 
-<!-- begin inner template-->
-<div class="container">
-    {{#block "content"}}
-    {{/block}}
-
+    </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<!-- end inner template-->
+<!--end main template-->
 {{#block "footer"}}
-
     </body>
     </html>
 {{/block}}

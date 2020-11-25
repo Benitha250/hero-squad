@@ -2,45 +2,59 @@ import java.util.ArrayList;
 import java.util.List;
 public class Hero {
 
-    private String hName;
-    private int hAge;
-    private String hSpecialPower;
-    private String hWeakness;
-    private static List<Hero> instances = new ArrayList<>();
-    private int hId;
-    public Hero(String name, int age, String special_power,String weakness){
-        this.hName = name;
-        hAge = age;
-        this.hSpecialPower = special_power;
-        this.hWeakness = weakness;
-        instances.add(this);
-        hId = instances.size();
+    private String name;
+    private int age;
+    private String powers;
+    private String weakness;
+    private static ArrayList<Hero> heroes = new ArrayList<>();
+    private int id;
+    private boolean occupied;
+
+    public Hero(String name, int age, String powers,String weakness){
+        this.name = name;
+        this.age = age;
+        this.powers = powers;
+        this.weakness = weakness;
+        heroes.add(this);
+        id = heroes.size();
     }
     public String getName(){
-        return hName;
+        return name;
     }
     public int getAge(){
-        return hAge;
+        return age;
     }
     public String getSpecialPower(){
-        return hSpecialPower;
+        return powers;
     }
     public String getWeakness(){
-        return hWeakness;
+        return weakness;
     }
     public int getId(){
-        return hId;
+        return id;
     }
-    public static List<Hero> all(){
-        return instances;
+
+    public boolean isOccupied() {
+        return occupied;
+    }
+
+    public static ArrayList<Hero> all(){
+        return heroes;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
     public static void clear(){
-        instances.clear();
+        heroes.clear();
     }
     public static Hero find(int id){
-        return instances.get(id-1);
+        return heroes.get(id-1);
     }
     public static void remove(int id){
-        instances.remove(id-1);
+        heroes.remove(id-1);
+    }
+
+    public void updateHero(boolean occupied){
+        this.occupied=occupied;
     }
 }

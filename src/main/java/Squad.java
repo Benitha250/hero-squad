@@ -4,16 +4,18 @@ public class Squad {
     private int maxSize;
     private String name;
     private String cause;
-    private static List<Squad> instances = new ArrayList<>();
+    private static ArrayList<Squad> squads = new ArrayList<>();
     private int id;
-    private List<Hero> heros;
+    private boolean occupied;
+    private ArrayList<Hero> heroes;
     public Squad(String name, int max_size, String cause) {
         this.name = name;
         this.maxSize = max_size;
         this.cause = cause;
-        instances.add(this);
-        id = instances.size();
-        heros = new ArrayList<>();
+        squads.add(this);
+        this.heroes = heroes;
+        id = squads.size();
+        heroes = new ArrayList<>();
     }
     public String getName(){
         return name;
@@ -24,33 +26,44 @@ public class Squad {
     public String getCause(){
         return cause;
     }
-    public static List<Squad> all(){
-        return instances;
+    public static ArrayList<Squad> all(){
+        return squads;
     }
     public int getId(){
         return id;
     }
     public static Squad find(int id){
-        return instances.get(id-1);
+        return squads.get(id-1);
     }
+
+    public boolean isOccupied() {
+        return occupied;
+    }
+
     public static void clear(){
-        instances.clear();
+        squads.clear();
     }
     public static void remove(int id){
-        instances.remove(id-1);
-        for (Squad squad:instances) {
-            squad.id = instances.indexOf(squad)+1;
+        squads.remove(id-1);
+        for (Squad squad:squads) {
+            squad.id = squads.indexOf(squad)+1;
         }
     }
-    public List<Hero> getHeros(){
-        return heros;
+    public void setId(int id) {
+        this.id = id;
+    }
+    public ArrayList<Hero> getHeroes(){
+        return heroes;
     }
     public void addHero(Hero myHero){
-        if (heros.size()<maxSize){
-            heros.add(myHero);
+        if (heroes.size()<maxSize){
+            heroes.add(myHero);
         }
     }
     public void removeHero(Hero myHero){
-        heros.remove(myHero);
+        heroes.remove(myHero);
+    }
+    public void updateHero(boolean occupied){
+        this.occupied=occupied;
     }
 }

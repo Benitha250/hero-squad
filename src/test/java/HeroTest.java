@@ -57,4 +57,14 @@ public class HeroTest {
         Hero.remove(myHero.getId());
         assertFalse(Hero.all().contains(myHero));
     }
+
+    @Test
+    public void testIfInstanceIsUpdated() throws Exception {
+        Hero myHero = new Hero("Benitha", 20, "Flying", "Fire");
+        int formerID=myHero.getId();
+        boolean formerOccupied=myHero.isOccupied();
+        myHero.updateHero(true);
+        assertEquals(formerID,myHero.getId());
+        assertNotEquals(formerOccupied,myHero.isOccupied());
+    }
 }
