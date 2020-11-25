@@ -13,9 +13,6 @@ public class App {
         //start session
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-/*
-            model.put("username", request.session().attribute("username"));
-*/
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
