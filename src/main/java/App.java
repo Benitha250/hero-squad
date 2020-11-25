@@ -84,14 +84,12 @@ public class App {
                     heroList.add(heroes.get(i));
                 }
             }
-
             model.put("heroes",Hero.all());
             return new ModelAndView(model,"squad-form.hbs");
         },new HandlebarsTemplateEngine());
 
         post("/squads/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-
             String name = request.queryParams("name");
             int maxSize=Integer.parseInt(request.queryParams("size"));
             String cause=request.queryParams("cause");
@@ -116,7 +114,6 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             model.put("squads",Squad.all());
             return new ModelAndView(model,"squad-detail.hbs");
-
         },new HandlebarsTemplateEngine());
 
         get("/squads/:id",(request, response) -> {

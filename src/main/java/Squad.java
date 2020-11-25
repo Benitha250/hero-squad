@@ -8,6 +8,7 @@ public class Squad {
     private int id;
     private boolean occupied;
     private ArrayList<Hero> heroes;
+
     public Squad(String name, int max_size, String cause) {
         this.name = name;
         this.maxSize = max_size;
@@ -15,8 +16,9 @@ public class Squad {
         squads.add(this);
         this.heroes = heroes;
         id = squads.size();
-        heroes = new ArrayList<>();
+        this.heroes = new ArrayList<>();
     }
+
     public String getName(){
         return name;
     }

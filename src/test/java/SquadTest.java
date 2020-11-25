@@ -116,12 +116,4 @@ public class SquadTest {
         assertTrue(mySquad.getHeroes().contains(firstHero));
     }
 
-    private Squad setUpNewSquad() {
-        ArrayList<Hero> heroes=new ArrayList<Hero>();
-        Hero hero=new Hero("Absorbing Man",30,"Absorbing ","Can Absorb evil thought");
-        Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast");
-        heroes.add(hero);
-        heroes.add(otherHero);
-        return new Squad("Nation League",2,"Bad guys");
-    }
 }
