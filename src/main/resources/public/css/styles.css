@@ -1,0 +1,13 @@
+body{
+text-align:center;
+color: white;
+background-image: url("/images/squad.jpg");
+}
+
+.main-content{
+background-color: blue;
+}
+
+a{
+color:white;
+}

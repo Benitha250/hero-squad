@@ -2,20 +2,18 @@
 <html>
 <head>
     <title>{{#block "title"}}Hero Squad{{/block}}</title>
-
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
+
 <ul class="nav ">
-    <li  class="active"><a href="/">Home</a></li>
-    <li  class="active"><a href="/hero">View Heroes</a></li>
-    <li  class="active"><a href="/squad">View Squads</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/hero">View Heroes</a></li>
+    <li><a href="/squad">View Squads</a></li>
 </ul>
 <div class="container-fluid">
     <!--begin main template-->
-
     <div class="main-content">
         {{#block "content"}}
         {{/block}}
